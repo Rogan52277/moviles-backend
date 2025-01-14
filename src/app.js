@@ -2,6 +2,7 @@ import express from "express"
 import morgan from "morgan"
 import cors from "cors"
 import dotenv from 'dotenv'
+import { PORT } from "./config.js"
 
 import { alumnoRouter } from './routes/alumno.routes.js'
 import { profesorRouter } from "./routes/profesor.routes.js"
@@ -24,7 +25,7 @@ export const crearApp=(Modelos)=>{
         credentials: true
     }))
 
-    app.set("port",process.env.PORT || 3000)
+    app.set("port",PORT)
     app.use(morgan("dev"))
     app.use(express.urlencoded({
         extended: true
